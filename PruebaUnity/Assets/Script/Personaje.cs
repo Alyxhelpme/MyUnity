@@ -13,9 +13,12 @@ public class Personaje : MonoBehaviour {
 
     public float velocidad=5;
     public float dummy; 
-
+    
     public Text textito; //Cuando se exponga un objeto que se espera que se mande del editor hay posibilidad de que sea nulo, nullptr
 
+    //CLONACION/INSTACIANDO OBJETOS
+
+    public GameObject original;
 
     //Por que exponer valores al editor? Por la facilidad de cambio de comportamiento sin meterse en el codigo
 
@@ -72,15 +75,15 @@ public class Personaje : MonoBehaviour {
 
         // }
 
-        // if (Input.GetKey(KeyCode.DownArrow)) {
+        if (Input.GetKey(KeyCode.Space)) {
             
-        //     //detona cuando
-        //     // cuadro anterior está libre
-        //     // cuadro actual esta presionado
-        //     transform.Translate(-2f * Time.deltaTime, 0, 0);
-        //     // print("KEY");
+            //detona cuando
+            // cuadro anterior está libre
+            // cuadro actual esta presionado
+            // print("KEY");
+            Instantiate(original);
 
-        // }
+        }
 
         // if(Input.GetMouseButtonDown(0)){
 
@@ -101,7 +104,8 @@ public class Personaje : MonoBehaviour {
         transform.Translate(
             velocidad*horizontal*Time.deltaTime, //Agrega el valor de velocidad 
             velocidad*vertical*Time.deltaTime,
-            0
+            0,
+            Space.World 
         );
 
     }
@@ -127,13 +131,35 @@ public class Personaje : MonoBehaviour {
     //1. Todos los involucrados tienen collider
     //2. Al menos 1 tiene rigid body (y se debe mover)
     //3. 3 momentos en la vida de la colision
-    void OnCollisionEnter(Collision c){
+    void OnCollisionEnter(Collision c){ //Collision tiene info detallada de la colision 
         UnityEngine.Debug.Log("Start");
+        print("onCollisionStart" + c.transform.name);
+        print("TAG: " + c.transform.tag);
+        print("LAYER: " + c.transform.layer);
+
+        //destroy - destruye un game object o un 
+        Destroy(c.GameObject);
+
     }
     void OnCollisionStay(Collision c){
-        print("onCollisionStay");
+        //print("onCollisionStay");
     }
     void OnCollisionExit(Collision c){
         print("onCollisionExit");
+    }
+    // cuando un involucrado en la colision es trigger el engine de fisica ya no lo toma en cuenta para movimiento
+
+    //la colision con trigger tiene su propio juego de metodos para deteccion
+
+    void OnTriggerEnter(Collider c){ // collider no tiene info de la fisica, es solo una referencia al collider del objeto 
+        print("Trigger Enter");
+    }
+    
+    void OnTriggerStay(Collider c){
+        print("Trigger Stay");
+    }
+    
+    void OnTriggerExit(Collider c){
+        print("Trigger exit");
     }
 }
