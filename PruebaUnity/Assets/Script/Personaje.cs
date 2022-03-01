@@ -20,6 +20,8 @@ public class Personaje : MonoBehaviour {
 
     public GameObject original;
 
+    c
+
     //Por que exponer valores al editor? Por la facilidad de cambio de comportamiento sin meterse en el codigo
 
     // CICLO DE VIDA : métodos que se ejecutan en momentos específicos
@@ -135,10 +137,10 @@ public class Personaje : MonoBehaviour {
         UnityEngine.Debug.Log("Start");
         print("onCollisionStart" + c.transform.name);
         print("TAG: " + c.transform.tag);
-        print("LAYER: " + c.transform.layer);
+        print("LAYER: " + c.gameObject.layer);
 
         //destroy - destruye un game object o un 
-        Destroy(c.GameObject);
+        
 
     }
     void OnCollisionStay(Collision c){
