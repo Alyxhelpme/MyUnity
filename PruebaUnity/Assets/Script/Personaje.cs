@@ -19,7 +19,7 @@ public class Personaje : MonoBehaviour {
     //CLONACION/INSTACIANDO OBJETOS
 
     public GameObject original;
-
+    
 
     //Por que exponer valores al editor? Por la facilidad de cambio de comportamiento sin meterse en el codigo
 
