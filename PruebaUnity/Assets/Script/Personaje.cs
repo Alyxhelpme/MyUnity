@@ -137,6 +137,7 @@ public class Personaje : MonoBehaviour {
         print("onCollisionStart" + c.transform.name);
         print("TAG: " + c.transform.tag);
         print("LAYER: " + c.gameObject.layer);
+        
 
         //destroy - destruye un game object o un 
         
