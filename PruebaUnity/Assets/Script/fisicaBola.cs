@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))] //manera de informar a Unity que es requerido este otro componente. Si no existe no va a existir
-public class fisicaBola : MonoBehaviour{
-
+public class fisicaBola : MonoBehaviour{        
     [SerializeField] //permite que aparezca en el editor de Unity
     private Rigidbody rb; //modificable desde el editor
 
