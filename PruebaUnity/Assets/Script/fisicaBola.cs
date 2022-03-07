@@ -17,7 +17,15 @@ public class fisicaBola : MonoBehaviour{
     // Update is called once per frame
     void Update(){
         if(Input.GetKeyDown(KeyCode.Space)){
-            rb.AddForce(new Vector3(0,200,0)); //fuerza para que al presionar espacio el objeto se vaya para arriba
+            //El vector de fuerza esta en espacio del mundo. No importan los ejes del objeto, la fisica sera respecto al mundo en el que este.
+
+            //3 vectores que sirven para tomar en cuenta orientacion local en espacio global (respecto a los ejes del objeto)
+            //* transform.up;
+            //* transform.right;
+            //* transform.forward;
+
+            // Todo vector esta normalizado (tamaño 1): sirve para expresar direccion y sentido  
+            rb.AddForce(transform.up*10, ForceMode.Impulse); //fuerza para que al presionar espacio el objeto se vaya para arriba
         }
     }
 }
