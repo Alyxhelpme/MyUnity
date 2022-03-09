@@ -41,6 +41,8 @@
      <Compile Include="Assets\Script\bala.cs" />
      <Compile Include="Assets\Script\Corrutinas.cs" />
      <Compile Include="Assets\Script\Raycasting.cs" />
+     <Compile Include="Assets\Script\cuboEnemigo.cs" />
+     <Compile Include="Assets\Script\singletonJugador.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.29f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
